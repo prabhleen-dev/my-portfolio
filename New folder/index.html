@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baccha | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(160deg, #2e0000, #4b0000 60%, #2e0000);
+      color: #fff7c5; /* butter tone */
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ===== Glowing ambient background ===== */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 247, 197, 0.05), transparent 40%),
+                  radial-gradient(circle at 70% 70%, rgba(255, 255, 180, 0.04), transparent 40%);
+      z-index: -1;
+      animation: drift 18s infinite alternate ease-in-out;
+      filter: blur(80px);
+    }
+
+    @keyframes drift {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(10%, 10%); }
+    }
+
+    /* ===== Header ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 8%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+      background: rgba(40, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 247, 197, 0.2);
+      animation: fadeDown 1s ease forwards;
+    }
+
+    header h1 {
+      font-family: 'Kanit', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #fff2a8;
+      text-shadow: 0 0 10px #fff7c588;
+    }
+
+    nav a {
+      color: #fff6ce;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff8db;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #fff7c5;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 10%;
+    }
+
+    .hero h2 {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #fff2a8cc;
+      margin-bottom: 0.5rem;
+      animation: slideUp 1.2s ease forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Kanit', sans-serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #fff7c5;
+      text-shadow: 0 0 20px #fff6ce77;
+      margin-bottom: 1rem;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #fff5b7;
+      font-size: 1.1rem;
+      margin-bottom: 2.2rem;
+      line-height: 1.7;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .hero button {
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(90deg, #fff7c5, #ffe68a);
+      color: #3b0000;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(255, 247, 197, 0.3);
+    }
+
+    .hero button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 40px rgba(255, 247, 197, 0.6);
+    }
+
+    /* ===== Floating dust particles ===== */
+    .dust {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 247, 197, 0.3);
+      animation: float 10s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .dust:nth-child(1) { width: 8px; height: 8px; top: 40%; left: 20%; animation-delay: 0s; }
+    .dust:nth-child(2) { width: 6px; height: 6px; top: 70%; left: 60%; animation-delay: 2s; }
+    .dust:nth-child(3) { width: 10px; height: 10px; top: 25%; left: 80%; animation-delay: 4s; }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(-30px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.6; }
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeDown {
+      from { transform: translateY(-40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff2a8; }
+      to { text-shadow: 0 0 25px #fff7c5, 0 0 50px #fff1a2; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      .hero h2 {
+        font-size: 1.2rem;
+      }
+      nav a {
+        margin-left: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>prabhleen.dev</h1>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="project.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="dust"></div>
+    <div class="dust"></div>
+    <div class="dust"></div>
+
+    <h2>Subtle. Focused. Crafted.</h2>
+    <h1>Prabh</h1>
+    <p>Front-End Developer-: build clean, responsive websites using HTML, CSS, and JavaScript ; turning quiet ideas into elegant web realities.</p>
+
+    
+    <button> <a href="My resume.pdf" class="btn btn-primary">Download Resume</a></button>
+        
+<!-- TECH STACK ICONS -->
+  <div class="tech-stack">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+  </div>
+  </section>
+</body>
+</html>
