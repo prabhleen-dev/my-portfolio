@@ -1,0 +1,22 @@
+/* ===== Tech Stack Icons ===== */
+.tech-stack {
+  display: flex;
+  gap: 25px;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 2.3s ease forwards;
+}
+
+.tech-stack img {
+  width: 55px; 
+  height: 55px;
+  filter: drop-shadow(0 0 8px rgba(255, 247, 197, 0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.tech-stack img:hover {
+  transform: translateY(-8px);
+  filter: drop-shadow(0 0 15px rgba(255, 247, 197, 0.8));
+}
